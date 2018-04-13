@@ -9,10 +9,15 @@
 import UIKit
 
 class ProjectTabBarController: UITabBarController {
+    
+    var currentProject: ResearchProject?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = false
+        self.extendedLayoutIncludesOpaqueBars = true
 
+//        self.title = currentProject?.title
         // Do any additional setup after loading the view.
     }
 

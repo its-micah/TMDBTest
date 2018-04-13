@@ -1,0 +1,24 @@
+PODS:
+  - DynamicBlurView (2.0.2)
+  - Kingfisher (4.6.3)
+  - PopupDialog (0.7.1):
+    - DynamicBlurView (~> 2.0)
+  - Shimmer (1.0.2)
+  - TMDBSwift (0.4.3.1)
+
+DEPENDENCIES:
+  - Kingfisher (~> 4.6)
+  - PopupDialog (~> 0.7)
+  - Shimmer
+  - TMDBSwift
+
+SPEC CHECKSUMS:
+  DynamicBlurView: aa6db4defc6e537eb86fc5e58dd3991666178399
+  Kingfisher: 98e6d5b5e807645743e8ed5ececd25d688d38452
+  PopupDialog: 39598b7d41719f5c025b4b70e62728bae7734fef
+  Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
+  TMDBSwift: 5975c4b95cc2854384320ae629562494a32c4d22
+
+PODFILE CHECKSUM: 0d9c4a6b31119e9e4fc0b173be0e406b9de5c208
+
+COCOAPODS: 1.4.0

@@ -14,9 +14,10 @@ fileprivate extension Selector {
 }
 
 @IBDesignable
-class ProjectSegmentedControl: UIView {
+class ProjectSegmentedControl: UIControl {
     var buttons = [UIButton]()
     var selector: UIView!
+    var selectedSegmentIndex = 0
     
     @IBInspectable
     var borderColor: UIColor = UIColor.clear {
@@ -99,6 +100,7 @@ class ProjectSegmentedControl: UIView {
             button.setTitleColor(textColor, for: .normal)
             
             if btn == button {
+                selectedSegmentIndex = buttonIndex
                 let selectorStartPosition = frame.width / CGFloat(buttons.count) * CGFloat(buttonIndex)
                 UIView.animate(withDuration: 0.2, animations: {
                     self.selector.frame.origin.x = selectorStartPosition
@@ -106,6 +108,7 @@ class ProjectSegmentedControl: UIView {
                 btn.setTitleColor(selectorTextColor, for: .normal)
             }
         }
+        sendActions(for: .valueChanged)
         
     }
  
