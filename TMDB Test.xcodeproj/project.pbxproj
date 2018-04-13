@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27F70A372081366A00041A3A /* CardPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F70A362081366A00041A3A /* CardPresentationController.swift */; };
+		27F70A39208137AD00041A3A /* PSPDFTouchForwardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F70A38208137AD00041A3A /* PSPDFTouchForwardingView.swift */; };
+		27F70A3B2081382F00041A3A /* CardTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F70A3A2081382F00041A3A /* CardTransitioningDelegate.swift */; };
+		27F70A3D20813AA500041A3A /* CardPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F70A3C20813AA500041A3A /* CardPresentationAnimator.swift */; };
+		27F70A3F2081409D00041A3A /* CardDismissalAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F70A3E2081409D00041A3A /* CardDismissalAnimator.swift */; };
 		3C3B8999B6BD9DBAA3537C82 /* Pods_TMDB_TestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3727ECFD45EBDB9F20C05 /* Pods_TMDB_TestUITests.framework */; };
 		C334E55411D12AAB01470983 /* Pods_TMDB_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D499D8D973A254348CA8BA0 /* Pods_TMDB_Test.framework */; };
 		C70480BC2053056500D38FF1 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70480BB2053056500D38FF1 /* MovieDetailViewController.swift */; };
@@ -60,6 +65,11 @@
 
 /* Begin PBXFileReference section */
 		06BF3EEFB4E549BF0FF1B869 /* Pods-TMDB TestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDB TestTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TMDB TestTests/Pods-TMDB TestTests.debug.xcconfig"; sourceTree = "<group>"; };
+		27F70A362081366A00041A3A /* CardPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPresentationController.swift; sourceTree = "<group>"; };
+		27F70A38208137AD00041A3A /* PSPDFTouchForwardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSPDFTouchForwardingView.swift; sourceTree = "<group>"; };
+		27F70A3A2081382F00041A3A /* CardTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTransitioningDelegate.swift; sourceTree = "<group>"; };
+		27F70A3C20813AA500041A3A /* CardPresentationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPresentationAnimator.swift; sourceTree = "<group>"; };
+		27F70A3E2081409D00041A3A /* CardDismissalAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDismissalAnimator.swift; sourceTree = "<group>"; };
 		56471A61037EAD4E03DB9C34 /* Pods-TMDB TestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDB TestUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TMDB TestUITests/Pods-TMDB TestUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8D499D8D973A254348CA8BA0 /* Pods_TMDB_Test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMDB_Test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B22B81C40F0FF6C519E461ED /* Pods-TMDB Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDB Test.release.xcconfig"; path = "Pods/Target Support Files/Pods-TMDB Test/Pods-TMDB Test.release.xcconfig"; sourceTree = "<group>"; };
@@ -207,6 +217,10 @@
 			isa = PBXGroup;
 			children = (
 				C78D715C207AE3DD00A3DD9F /* ProjectTabBarController.swift */,
+				27F70A362081366A00041A3A /* CardPresentationController.swift */,
+				27F70A3A2081382F00041A3A /* CardTransitioningDelegate.swift */,
+				27F70A3C20813AA500041A3A /* CardPresentationAnimator.swift */,
+				27F70A3E2081409D00041A3A /* CardDismissalAnimator.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -252,6 +266,7 @@
 		C7C47F6C2050944500334141 /* TMDB Test */ = {
 			isa = PBXGroup;
 			children = (
+				27F70A38208137AD00041A3A /* PSPDFTouchForwardingView.swift */,
 				C7C47F6D2050944500334141 /* AppDelegate.swift */,
 				C7CDEF3C206C2B3100BC55A0 /* FlowLayout.swift */,
 				C72F412820633D71007A8808 /* ResearchProject.swift */,
@@ -592,6 +607,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27F70A3F2081409D00041A3A /* CardDismissalAnimator.swift in Sources */,
 				C78D715A2078254400A3DD9F /* LogTableViewCell.swift in Sources */,
 				C744B851206218B6003480C9 /* PosterCollectionViewCell.swift in Sources */,
 				C7A443D62069D87700C6B6DB /* ProjectViewController.swift in Sources */,
@@ -610,11 +626,15 @@
 				C75727712076D701009E4826 /* NotesViewController.swift in Sources */,
 				C7C47F702050944500334141 /* SearchViewController.swift in Sources */,
 				C78D7163207C05BC00A3DD9F /* LogViewControllerTwo.swift in Sources */,
+				27F70A372081366A00041A3A /* CardPresentationController.swift in Sources */,
 				C7DA43A0207EC3EA008BBC4B /* ProjectDetailsViewController.swift in Sources */,
 				C78B041B206439F800BEDE60 /* FloatingActionButton.swift in Sources */,
 				C78D7161207BA11700A3DD9F /* ProjectHeaderView.swift in Sources */,
 				C7C47F6E2050944500334141 /* AppDelegate.swift in Sources */,
+				27F70A39208137AD00041A3A /* PSPDFTouchForwardingView.swift in Sources */,
+				27F70A3B2081382F00041A3A /* CardTransitioningDelegate.swift in Sources */,
 				C75727732076D710009E4826 /* ClockViewController.swift in Sources */,
+				27F70A3D20813AA500041A3A /* CardPresentationAnimator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,6 +14,8 @@ class LogViewControllerTwo: UIViewController, ProjectHeaderDelegate, EventInputD
     @IBOutlet weak var logTableView: UITableView!
     var currentProject: ResearchProject?
     var events = [Event]()
+    let cardTransitioningDelegate = CardTransitioningDelegate()
+
 
     
     override func viewDidLoad() {
@@ -77,10 +79,11 @@ class LogViewControllerTwo: UIViewController, ProjectHeaderDelegate, EventInputD
         print("show Add Event Dialogue")
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let vc = storyboard.instantiateViewController(withIdentifier: "EventInputViewController") as! EventInputViewController
-        let popup = PopupDialog(viewController: vc, buttonAlignment: .horizontal, transitionStyle: .zoomIn, preferredWidth: self.view.frame.width, gestureDismissal: false, hideStatusBar: false, completion: nil)
-        vc.popup = popup
+        vc.transitioningDelegate = cardTransitioningDelegate
         vc.delegate = self
-        self.present(popup, animated: true, completion: nil)
+        vc.modalPresentationStyle = .custom
+        vc.currentProject = currentProject
+        self.present(vc, animated: true, completion: nil)
     }
     
 }

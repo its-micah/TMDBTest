@@ -27,6 +27,7 @@ class EventInputViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        movieNameLabel.text = currentProject?.title
         // Do any additional setup after loading the view.
     }
 
@@ -39,11 +40,11 @@ class EventInputViewController: UIViewController {
         print("Save")
         let event = Event(description: eventTextView.text, timestamp: "00:45:16")
         delegate?.addEvent(event)
-        popup?.dismiss()
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onCloseTapped(_ sender: Any) {
-        popup?.dismiss()
+        self.dismiss(animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation
