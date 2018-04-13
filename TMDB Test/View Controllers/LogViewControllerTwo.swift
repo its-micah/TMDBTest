@@ -83,7 +83,9 @@ class LogViewControllerTwo: UIViewController, ProjectHeaderDelegate, EventInputD
         vc.delegate = self
         vc.modalPresentationStyle = .custom
         vc.currentProject = currentProject
-        self.present(vc, animated: true, completion: nil)
+        self.present(vc, animated: true, completion: {
+            print("done presenting")
+        })
     }
     
 }
@@ -91,7 +93,6 @@ class LogViewControllerTwo: UIViewController, ProjectHeaderDelegate, EventInputD
 extension LogViewControllerTwo: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return events.count
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

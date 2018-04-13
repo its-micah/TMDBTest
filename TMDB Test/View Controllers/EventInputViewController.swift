@@ -28,6 +28,9 @@ class EventInputViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         movieNameLabel.text = currentProject?.title
+        timePicker.delegate = self
+        self.eventTextView.becomeFirstResponder()
+
         // Do any additional setup after loading the view.
     }
 
@@ -38,12 +41,15 @@ class EventInputViewController: UIViewController {
     
     @IBAction func onSaveTapped(_ sender: Any) {
         print("Save")
-        let event = Event(description: eventTextView.text, timestamp: "00:45:16")
+        let timestamp: String = "\(hour):\(minutes):\(seconds)"
+        let event = Event(description: eventTextView.text, timestamp: timestamp)
         delegate?.addEvent(event)
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onCloseTapped(_ sender: Any) {
+        self.eventTextView.resignFirstResponder()
+
         self.dismiss(animated: true, completion: nil)
     }
     /*
@@ -76,9 +82,9 @@ extension EventInputViewController: UIPickerViewDelegate, UIPickerViewDataSource
         }
     }
     
-    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-        return pickerView.frame.size.width/3
-    }
+//    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+//        return pickerView.frame.size.width/3.5
+//    }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch component {
