@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TMDBSwift
 import PopupDialog
 
 
@@ -24,11 +25,11 @@ class LogViewControllerTwo: UIViewController, ProjectHeaderDelegate, EventInputD
         logTableView.register(UINib(nibName: "ProjectHeaderView", bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: "ProjectHeaderView")
         logTableView.delegate = self
         
-        let edgeInsets = UIEdgeInsetsMake(-45, 0, 0, 0)
+        let edgeInsets = UIEdgeInsetsMake(-20, 0, 0, 0)
         logTableView.contentInset = edgeInsets
         logTableView.scrollIndicatorInsets = edgeInsets
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
-
+//        setUpUI()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -38,10 +39,63 @@ class LogViewControllerTwo: UIViewController, ProjectHeaderDelegate, EventInputD
         
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+//    func setUpUI() {
+//        self.gradientView.alpha = 0
+//        self.projectBackdropImageView.alpha = 0
+//        guard let movie = currentProject else {
+//            print("No project here")
+//            return
+//        }
+//        movieTitleLabel.text = movie.title
+//        posterImageView.kf.setImage(with: movie.makePosterURL(movie.posterPath))
+//
+//        MovieDetailedMDB.movie(movieID: movie.movieID) { (apiReturn, details) in
+//            if let logline = details?.tagline {
+//                print("This is the tagline -> \(logline)")
+//            }
+//
+//            if let runtime = details?.runtime, let releaseDate = details?.release_date {
+//                // I need to only grab the year in releaseDate. Returns as Year-Month-Day
+//                let convertedYear = self.convertDateFormater(releaseDate)
+//                self.yearLabel.text = convertedYear
+//                self.runtimeLabel.text = "\(runtime) mins"
+//            }
+//        }
+//
+//        MovieMDB.credits(movieID: movie.movieID) { (apiReturn, credits) in
+//            var directorName: String?
+//            if let director = credits?.crew.filter({ $0.job == "Director" }) {
+//                if director.count > 1{
+//                    var directorsArray = [String]()
+//                    for directors in director {
+//                        directorsArray.append(directors.name)
+//                    }
+//                    directorName = directorsArray.joined(separator: " & ")
+//                } else if director.count == 1 {
+//                    directorName = director[0].name
+//                }
+//            } else {
+//                directorName = ""
+//            }
+//            self.directorNameLabel.text = directorName
+//        }
+//
+//        MovieMDB.images(movieID: currentProject?.movieID) { (apiReturn, details) in
+//            if let backdrops = details?.backdrops {
+//                let path = backdrops[0].file_path
+//                //                self.projectBackdropImageView.kf.setImage(with: URL(string: baseURL + backdropSize + path!))
+//                self.projectBackdropImageView.kf.setImage(with: URL(string: baseURL + backdropSize + path!), placeholder: nil, options: nil, progressBlock: nil, completionHandler: { (backdrop, error, cacheType, url) in
+//                    self.projectBackdropImageView.image = backdrop
+//                    UIView.animate(withDuration: 0.3, animations: {
+//                        self.gradientView.alpha = 1
+//                        self.projectBackdropImageView.alpha = 1
+//                    })
+//                })
+//            }
+//        }
+//
+//
+//    }
     
     func didTapDetailsButton() {
         print("Show Details")
@@ -87,7 +141,6 @@ class LogViewControllerTwo: UIViewController, ProjectHeaderDelegate, EventInputD
             print("done presenting")
         })
     }
-    
 }
 
 extension LogViewControllerTwo: UITableViewDelegate, UITableViewDataSource {
@@ -106,6 +159,8 @@ extension LogViewControllerTwo: UITableViewDelegate, UITableViewDataSource {
         let headerView = logTableView.dequeueReusableHeaderFooterView(withIdentifier: "ProjectHeaderView") as! ProjectHeaderView
         headerView.delegate = self
         headerView.cofigureWith(currentProject!)
+        headerView.gradientView.gradientLayer.colors = [UIColor(red: 0, green: 0, blue: 0, alpha: 0.85).cgColor, UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).cgColor, UIColor(red: 0, green: 0, blue: 0, alpha: 0.65).cgColor, UIColor(red: 0, green: 0, blue: 0, alpha: 0.85).cgColor]
+        headerView.gradientView.gradientLayer.gradient = GradientPoint.topBottom.draw()
         return headerView
     }
     

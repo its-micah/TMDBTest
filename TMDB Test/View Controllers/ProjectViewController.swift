@@ -11,9 +11,9 @@ import TMDBSwift
 
 class ProjectViewController: UIViewController {
 
-    private lazy var logViewController: LogViewController = {
+    private lazy var logViewController: LogViewControllerTwo = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var vc = storyboard.instantiateViewController(withIdentifier: "LogViewController") as! LogViewController
+        var vc = storyboard.instantiateViewController(withIdentifier: "LogViewControllerTwo") as! LogViewControllerTwo
         self.add(asChildViewController: vc)
         return vc
     }()
@@ -47,18 +47,19 @@ class ProjectViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
         setUpUI()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
 //        self.navigationController?.navigationBar.shadowImage = UIImage()
 //        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.navigationBar.tintColor = .white
+//        self.navigationController?.navigationBar.tintColor = .white
 //        self.navigationController?.navigationBar.backgroundColor = .clear
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.navigationBar.backgroundColor = .clear
+//        self.navigationController?.navigationBar.isTranslucent = true
+//        self.navigationController?.navigationBar.backgroundColor = .clear
         
 //        self.posterImageView.isHidden = true
         self.posterImageView.layer.borderWidth = 3.0
         self.posterImageView.layer.borderColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 1.0).cgColor
         add(asChildViewController: logViewController)
+        logViewController.currentProject = currentProject
         
 
     
@@ -96,15 +97,16 @@ class ProjectViewController: UIViewController {
         
         MovieMDB.credits(movieID: movie.movieID) { (apiReturn, credits) in
             var directorName: String?
-            let director = credits?.crew.filter { $0.job == "Director" }
-            if director!.count > 1{
-                var directorsArray = [String]()
-                for directors in director! {
-                    directorsArray.append(directors.name)
+            if let director = credits?.crew.filter({ $0.job == "Director" }) {
+                if director.count > 1{
+                    var directorsArray = [String]()
+                    for directors in director {
+                        directorsArray.append(directors.name)
+                    }
+                    directorName = directorsArray.joined(separator: " & ")
+                } else if director.count == 1 {
+                    directorName = director[0].name
                 }
-                directorName = directorsArray.joined(separator: " & ")
-            } else if director!.count == 1 {
-                directorName = director![0].name
             } else {
                 directorName = ""
             }

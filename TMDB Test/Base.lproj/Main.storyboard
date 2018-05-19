@@ -455,12 +455,12 @@
         <!--Log View Controller Two-->
         <scene sceneID="3f7-Zc-P9x">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Zes-OV-3NG" customClass="LogViewControllerTwo" customModule="TMDB_Test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogViewControllerTwo" automaticallyAdjustsScrollViewInsets="NO" id="Zes-OV-3NG" customClass="LogViewControllerTwo" customModule="TMDB_Test" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RrO-Wx-gK9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="152" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="g3J-bZ-ReP">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="152" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="g3J-bZ-ReP">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -692,11 +692,11 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bis-TH-oou">
-                                                    <rect key="frame" x="-15" y="-15" width="30" height="30"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
                                                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="Tjc-W0-MTK"/>
-                                                        <constraint firstAttribute="width" constant="30" id="fNz-Pb-41n"/>
+                                                        <constraint firstAttribute="height" constant="32" id="Tjc-W0-MTK"/>
+                                                        <constraint firstAttribute="width" constant="32" id="fNz-Pb-41n"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="17"/>
                                                     <state key="normal" title="X">
@@ -704,7 +704,7 @@
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="15"/>
+                                                            <integer key="value" value="16"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
@@ -715,14 +715,14 @@
                                         </view>
                                         <constraints>
                                             <constraint firstItem="OF8-rK-wmq" firstAttribute="top" secondItem="Rsv-Mu-fN6" secondAttribute="top" id="0L5-1g-eia"/>
-                                            <constraint firstAttribute="trailing" secondItem="Bis-TH-oou" secondAttribute="trailing" constant="135" id="MGh-Ee-eBD"/>
+                                            <constraint firstItem="Bis-TH-oou" firstAttribute="leading" secondItem="Rsv-Mu-fN6" secondAttribute="leading" id="1QH-XB-EIu"/>
                                             <constraint firstAttribute="bottom" secondItem="OF8-rK-wmq" secondAttribute="bottom" constant="20" id="NKU-y4-0wr"/>
                                             <constraint firstAttribute="trailing" secondItem="7aD-ul-tvV" secondAttribute="trailing" id="Q4L-7I-icB"/>
                                             <constraint firstItem="OF8-rK-wmq" firstAttribute="width" secondItem="Rsv-Mu-fN6" secondAttribute="height" multiplier="30:49" id="SwE-OW-i0C"/>
                                             <constraint firstAttribute="trailing" secondItem="OF8-rK-wmq" secondAttribute="trailing" id="Tez-ry-wxe"/>
                                             <constraint firstItem="7aD-ul-tvV" firstAttribute="top" secondItem="OF8-rK-wmq" secondAttribute="bottom" constant="4" id="W8h-xu-XMX"/>
                                             <constraint firstItem="7aD-ul-tvV" firstAttribute="leading" secondItem="Rsv-Mu-fN6" secondAttribute="leading" id="WjP-7B-Xn1"/>
-                                            <constraint firstItem="Bis-TH-oou" firstAttribute="top" secondItem="Rsv-Mu-fN6" secondAttribute="top" constant="-15" id="ckl-dS-cgt"/>
+                                            <constraint firstItem="Bis-TH-oou" firstAttribute="top" secondItem="Rsv-Mu-fN6" secondAttribute="top" id="ckl-dS-cgt"/>
                                             <constraint firstAttribute="bottom" secondItem="7aD-ul-tvV" secondAttribute="bottom" id="dtO-ax-VO4"/>
                                             <constraint firstItem="OF8-rK-wmq" firstAttribute="leading" secondItem="Rsv-Mu-fN6" secondAttribute="leading" id="y8I-1I-dq6"/>
                                         </constraints>
@@ -796,10 +796,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.87058823529999996" green="0.26274509800000001" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.87058823529999996" green="0.26274509800000001" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="fab"/>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
-                        </userDefinedRuntimeAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -928,7 +924,6 @@
                     <view key="view" contentMode="scaleToFill" id="icx-mt-XAL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.54321473994860581" green="1" blue="0.50831367270722372" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="cGz-77-elF"/>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>

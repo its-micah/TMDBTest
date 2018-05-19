@@ -152,40 +152,6 @@ class HomeViewController: UIViewController, UIScrollViewDelegate, Deleteable {
         print("tapped")
     }
     
-    private func moveAndResizeImage(for height: CGFloat) {
-        let coeff: CGFloat = {
-            let delta = height - Const.NavBarHeightSmallState
-            let heightDifferenceBetweenStates = (Const.NavBarHeightLargeState - Const.NavBarHeightSmallState)
-            return delta / heightDifferenceBetweenStates
-        }()
-        
-        let factor = Const.ImageSizeForSmallState / Const.ImageSizeForLargeState
-        
-        let scale: CGFloat = {
-            let sizeAddendumFactor = coeff * (1.0 - factor)
-            return min(1.0, sizeAddendumFactor + factor)
-        }()
-        
-        // Value of difference between icons for large and small states
-        let sizeDiff = Const.ImageSizeForLargeState * (1.0 - factor) // 8.0
-        let yTranslation: CGFloat = {
-            /// This value = 14. It equals to difference of 12 and 6 (bottom margin for large and small states). Also it adds 8.0 (size difference when the image gets smaller size)
-            let maxYTranslation = Const.ImageBottomMarginForLargeState - Const.ImageBottomMarginForSmallState + sizeDiff
-            return max(0, min(maxYTranslation, (maxYTranslation - coeff * (Const.ImageBottomMarginForSmallState + sizeDiff))))
-        }()
-        
-        let xTranslation = max(0, sizeDiff - coeff * sizeDiff)
-        
-        imageView.transform = CGAffineTransform.identity
-            .scaledBy(x: scale, y: scale)
-            .translatedBy(x: xTranslation, y: yTranslation)
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let height = navigationController?.navigationBar.frame.height else { return }
-        moveAndResizeImage(for: height)
-    }
-    
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         toggleColorMode()
     }
@@ -218,7 +184,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate, Deleteable {
                 newCellAdded = false
                 return
             }
-            let newProject = ResearchProject(title: movie.title!, movieID: movie.id!, posterPath: movie.poster_path, notes: [String](), researchLog: ResearchLog(), director: nil, writer: nil, runtime: nil, year: nil)
+            let newProject = ResearchProject(title: movie.title!, movieID: movie.id!, posterPath: movie.poster_path, backdropPath: movie.backdrop_path, notes: [String](), researchLog: ResearchLog(), director: nil, writer: nil, runtime: nil, year: nil)
             dataSource.addNewProject(newProject)
             self.projectsCollectionView.reloadData()
             newCellAdded = true
@@ -287,11 +253,11 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         if !isEditing {
             let project = dataSource.projectForItemAtIndexPath(indexPath)
             let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-//            let destination = storyboard.instantiateViewController(withIdentifier: "ProjectVC") as! ProjectViewController
-            let destination = storyboard.instantiateViewController(withIdentifier: "ProjectTabBarController") as! ProjectTabBarController
-//            destination.currentProject = project
-            (destination.viewControllers![0].childViewControllers[0] as! LogViewControllerTwo).currentProject = project
-//            (destination.viewControllers![0] as! LogViewControllerTwo).currentProject = project
+            let destination = storyboard.instantiateViewController(withIdentifier: "ProjectVC") as! ProjectViewController
+//            let destination = storyboard.instantiateViewController(withIdentifier: "ProjectTabBarController") as! ProjectTabBarController
+            destination.currentProject = project
+//            (destination.viewControllers![0].childViewControllers[0] as! LogViewControllerTwo).currentProject = project
+//            (destination.viewControllers![0] as! LogViewController).currentProject = project
 //            destination.currentProject = project
             navigationController?.pushViewController(destination, animated: true)
         }

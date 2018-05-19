@@ -19,6 +19,8 @@ class ProjectHeaderView: UITableViewHeaderFooterView {
     @IBOutlet weak var directorNameLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var runtimeLabel: UILabel!
+    @IBOutlet weak var backdropImageView: UIImageView!
+    @IBOutlet weak var gradientView: GradientView!
     var delegate: ProjectHeaderDelegate?
     
     /*
@@ -38,6 +40,10 @@ class ProjectHeaderView: UITableViewHeaderFooterView {
         self.directorNameLabel.text = project.director
         self.yearLabel.text = project.year
         self.runtimeLabel.text = project.runtime
+        let backdropImage = project.makeBackdropURL(project.backdropPath)
+        self.backdropImageView.kf.setImage(with: backdropImage)
     }
+    
+
     
 }

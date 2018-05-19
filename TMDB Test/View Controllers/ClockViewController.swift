@@ -9,10 +9,13 @@
 import UIKit
 
 class ClockViewController: UIViewController {
+    
+    var clockView: ClockView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        clockView = ClockView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width / 1.2, height: self.view.frame.height / 1.2))
+        clockView?.makeWaves()
         // Do any additional setup after loading the view.
     }
 

@@ -15,6 +15,7 @@
 		3C3B8999B6BD9DBAA3537C82 /* Pods_TMDB_TestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B3727ECFD45EBDB9F20C05 /* Pods_TMDB_TestUITests.framework */; };
 		C334E55411D12AAB01470983 /* Pods_TMDB_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D499D8D973A254348CA8BA0 /* Pods_TMDB_Test.framework */; };
 		C70480BC2053056500D38FF1 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70480BB2053056500D38FF1 /* MovieDetailViewController.swift */; };
+		C72BBC24208EC1390000DB29 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72BBC23208EC1390000DB29 /* ClockView.swift */; };
 		C72F412920633D71007A8808 /* ResearchProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72F412820633D71007A8808 /* ResearchProject.swift */; };
 		C735F15A207FBE4E00B02DF1 /* EventInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C735F159207FBE4E00B02DF1 /* EventInputViewController.swift */; };
 		C744B851206218B6003480C9 /* PosterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C744B850206218B6003480C9 /* PosterCollectionViewCell.swift */; };
@@ -74,6 +75,7 @@
 		8D499D8D973A254348CA8BA0 /* Pods_TMDB_Test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMDB_Test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B22B81C40F0FF6C519E461ED /* Pods-TMDB Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDB Test.release.xcconfig"; path = "Pods/Target Support Files/Pods-TMDB Test/Pods-TMDB Test.release.xcconfig"; sourceTree = "<group>"; };
 		C70480BB2053056500D38FF1 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		C72BBC23208EC1390000DB29 /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		C72F412820633D71007A8808 /* ResearchProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResearchProject.swift; sourceTree = "<group>"; };
 		C735F159207FBE4E00B02DF1 /* EventInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInputViewController.swift; sourceTree = "<group>"; };
 		C744B850206218B6003480C9 /* PosterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -165,6 +167,14 @@
 				E1B3727ECFD45EBDB9F20C05 /* Pods_TMDB_TestUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C72BBC22208EC10D0000DB29 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C72BBC23208EC1390000DB29 /* ClockView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		C744B84D2061B78F003480C9 /* View Controllers */ = {
@@ -273,6 +283,7 @@
 				C78D715B207AE37A00A3DD9F /* Controllers */,
 				C7BB72B3206D451C00B15269 /* Data */,
 				C7BB72B4206D452B00B15269 /* Controls */,
+				C72BBC22208EC10D0000DB29 /* Views */,
 				C78B041C20643A0100BEDE60 /* Buttons */,
 				C744B84D2061B78F003480C9 /* View Controllers */,
 				C744B84E2061B79E003480C9 /* Cells */,
@@ -630,6 +641,7 @@
 				C7DA43A0207EC3EA008BBC4B /* ProjectDetailsViewController.swift in Sources */,
 				C78B041B206439F800BEDE60 /* FloatingActionButton.swift in Sources */,
 				C78D7161207BA11700A3DD9F /* ProjectHeaderView.swift in Sources */,
+				C72BBC24208EC1390000DB29 /* ClockView.swift in Sources */,
 				C7C47F6E2050944500334141 /* AppDelegate.swift in Sources */,
 				27F70A39208137AD00041A3A /* PSPDFTouchForwardingView.swift in Sources */,
 				27F70A3B2081382F00041A3A /* CardTransitioningDelegate.swift in Sources */,

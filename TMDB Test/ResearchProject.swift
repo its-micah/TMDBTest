@@ -14,6 +14,7 @@ class ResearchProject {
     let title: String
     let movieID: Int
     let posterPath: String?
+    let backdropPath: String?
     var notes: Array<String>
     let researchLog: ResearchLog
     let director: String?
@@ -21,10 +22,11 @@ class ResearchProject {
     let runtime: String?
     let year: String?
     
-    init(title: String, movieID: Int, posterPath: String?, notes: Array<String>, researchLog: ResearchLog, director: String?, writer: String?, runtime: String?, year: String?) {
+    init(title: String, movieID: Int, posterPath: String?, backdropPath: String?, notes: Array<String>, researchLog: ResearchLog, director: String?, writer: String?, runtime: String?, year: String?) {
         self.title = title
         self.movieID = movieID
         self.posterPath = posterPath
+        self.backdropPath = backdropPath
         self.notes = notes
         self.researchLog = researchLog
         self.director = director
@@ -40,6 +42,12 @@ class ResearchProject {
         return URL(string: baseURL + posterSize + actualPath)
     }
     
+    func makeBackdropURL(_ path: String?) -> URL? {
+        guard let actualPath = path else {
+            return nil
+        }
+        return URL(string: baseURL + backdropSize + actualPath)
+    }
 }
 
 struct Event {

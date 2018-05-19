@@ -101,4 +101,8 @@ class PosterCollectionViewCell: UICollectionViewCell {
         let random = (Double(arc4random_uniform(1000)) - 500.0) / 500.0
         return interval + variance * random
     }
+    
+    override func prepareForReuse() {
+        self.bringSubview(toFront: deleteButton)
+    }
 }

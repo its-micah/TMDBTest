@@ -29,7 +29,11 @@ class EventInputViewController: UIViewController {
         super.viewDidLoad()
         movieNameLabel.text = currentProject?.title
         timePicker.delegate = self
+        eventTextView.delegate = self
+        eventTextView.text = "What Happened?"
+        eventTextView.textColor = .lightGray
         self.eventTextView.becomeFirstResponder()
+        eventTextView.selectedTextRange = eventTextView.textRange(from: eventTextView.beginningOfDocument, to: eventTextView.beginningOfDocument)
 
         // Do any additional setup after loading the view.
     }
@@ -44,12 +48,12 @@ class EventInputViewController: UIViewController {
         let timestamp: String = "\(hour):\(minutes):\(seconds)"
         let event = Event(description: eventTextView.text, timestamp: timestamp)
         delegate?.addEvent(event)
+        self.eventTextView.resignFirstResponder()
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onCloseTapped(_ sender: Any) {
         self.eventTextView.resignFirstResponder()
-
         self.dismiss(animated: true, completion: nil)
     }
     /*
@@ -66,6 +70,25 @@ class EventInputViewController: UIViewController {
 
 extension EventInputViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let pickerLabel = UILabel()
+        var rowTitle: String = ""
+        switch component {
+        case 0:
+            rowTitle = "Hour"
+        case 1:
+            rowTitle = "Minute"
+        case 2:
+            rowTitle = "Second"
+        default:
+            rowTitle = ""
+        }
+        let titleData = "\(row) \(rowTitle)"
+        let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedStringKey.font: UIFont(name: "Avenir", size: 20)!])
+        pickerLabel.attributedText = myTitle
+        return pickerLabel
+    }
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 3
     }
@@ -73,7 +96,7 @@ extension EventInputViewController: UIPickerViewDelegate, UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch component {
         case 0:
-            return 25
+            return 4
         case 1,2:
             return 60
             
@@ -81,10 +104,6 @@ extension EventInputViewController: UIPickerViewDelegate, UIPickerViewDataSource
             return 0
         }
     }
-    
-//    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-//        return pickerView.frame.size.width/3.5
-//    }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch component {
@@ -110,4 +129,31 @@ extension EventInputViewController: UIPickerViewDelegate, UIPickerViewDataSource
             break;
         }
     }
+}
+
+extension EventInputViewController: UITextViewDelegate {
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let currentText = textView.text
+        let updatedText = (currentText! as NSString).replacingCharacters(in: range, with: text)
+        if updatedText.isEmpty {
+            textView.text = "What Happened?"
+            textView.textColor = .lightGray
+            textView.selectedTextRange = textView.textRange(from: eventTextView.beginningOfDocument, to: eventTextView.beginningOfDocument)
+            return false
+        } else if textView.textColor == .lightGray && !text.isEmpty {
+            textView.text = nil
+            textView.textColor = .black
+        }
+        return true
+    }
+    
+    func textViewDidChangeSelection(_ textView: UITextView) {
+        if self.view.window != nil {
+            if textView.textColor == .lightGray {
+                textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
+            }
+        }
+    }
+    
 }

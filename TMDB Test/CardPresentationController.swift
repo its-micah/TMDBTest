@@ -19,7 +19,7 @@ final class CardPresentationController: UIPresentationController {
     }
     
     func frameOfPresentatedViewInContainerView() -> CGRect {
-        return CGRect(x: 0, y: 40, width: (containerView?.bounds.width)!, height: containerView!.bounds.height / 2.1)
+        return CGRect(x: 0, y: 40, width: (containerView?.bounds.width)!, height: containerView!.bounds.height / 2)
         
     }
     

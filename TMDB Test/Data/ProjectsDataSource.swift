@@ -64,12 +64,19 @@ class ProjectsDataSource {
         let wilderpeoplePosterPath = "/2wxvvnHKdZRB31Drf7PbRzPb0mR.jpg"
         let apesPosterPath = "/3vYhLLxrTtZLysXtIWktmd57Snv.jpg"
         
-        let rotla = ResearchProject(title: "Raiders of the Lost Ark", movieID: 85, posterPath: rotlaPosterPath, notes: [String](), researchLog: ResearchLog(), director: "Steven Spielberg", writer: "Lawrence Kasdan", runtime: "115 mins", year: "1981")
-        let ferris = ResearchProject(title: "Ferris Bueller's Day Off", movieID: 9377, posterPath: ferrisPosterPath, notes: [String](), researchLog: ResearchLog(), director: "John Hughes", writer: "John Hughes", runtime: "103 mins", year: "103 mins")
-        let thorRagnarok = ResearchProject(title: "Thor: Ragnarok", movieID: 284053, posterPath: thorPosterPath, notes: [String](), researchLog: ResearchLog(), director: "Taika Watiti", writer: "Craig Kyle, Christopher Yost, Eric Pearson", runtime: "130 mins", year: "2017")
-        let fantasticMrFox = ResearchProject(title: "Fantastic Mr. Fox", movieID: 10315, posterPath: foxPosterPath, notes: [String](), researchLog: ResearchLog(), director: "Wes Anderson", writer: "Noah Baumbach", runtime: "87 mins", year: "2009")
-        let huntForTheWilderpeople = ResearchProject(title: "Hunt for the Wilderpeople", movieID: 371645, posterPath: wilderpeoplePosterPath, notes: [String](), researchLog: ResearchLog(), director: "Taika Watiti", writer: "Taika Watiti", runtime: "101 mins", year: "2016")
-        let apes = ResearchProject(title: "War for the Planet of the Apes", movieID: 281338, posterPath: apesPosterPath, notes: [String](), researchLog: ResearchLog(), director: "Matt Reeves", writer: "Mark Bomback, Matt Reeves", runtime: "140 mins", year: "2017")
+        let rotlaBackdropPath = "/1TxaXNobCO3fhcgYUfLHj6CkEFP.jpg"
+        let ferrisBackdropPath = "/kto49vDiSzooEdy4WQH2RtaC9oP.jpg"
+        let thorBackdropPath = "/kaIfm5ryEOwYg8mLbq8HkPuM1Fo.jpg"
+        let foxBackdropPath = "/750pfEttsYAVmynRg2vmt1AXh4q.jpg"
+        let wilderpeopleBackdropPath = "/2wxvvnHKdZRB31Drf7PbRzPb0mR.jpg"
+        let apesBackdropPath = "/3vYhLLxrTtZLysXtIWktmd57Snv.jpg"
+        
+        let rotla = ResearchProject(title: "Raiders of the Lost Ark", movieID: 85, posterPath: rotlaPosterPath, backdropPath: rotlaBackdropPath, notes: [String](), researchLog: ResearchLog(), director: "Steven Spielberg", writer: "Lawrence Kasdan", runtime: "115 mins", year: "1981")
+        let ferris = ResearchProject(title: "Ferris Bueller's Day Off", movieID: 9377, posterPath: ferrisPosterPath, backdropPath: ferrisBackdropPath, notes: [String](), researchLog: ResearchLog(), director: "John Hughes", writer: "John Hughes", runtime: "103 mins", year: "103 mins")
+        let thorRagnarok = ResearchProject(title: "Thor: Ragnarok", movieID: 284053, posterPath: thorPosterPath, backdropPath: thorBackdropPath, notes: [String](), researchLog: ResearchLog(), director: "Taika Watiti", writer: "Craig Kyle, Christopher Yost, Eric Pearson", runtime: "130 mins", year: "2017")
+        let fantasticMrFox = ResearchProject(title: "Fantastic Mr. Fox", movieID: 10315, posterPath: foxPosterPath, backdropPath: foxBackdropPath, notes: [String](), researchLog: ResearchLog(), director: "Wes Anderson", writer: "Noah Baumbach", runtime: "87 mins", year: "2009")
+        let huntForTheWilderpeople = ResearchProject(title: "Hunt for the Wilderpeople", movieID: 371645, posterPath: wilderpeoplePosterPath, backdropPath: wilderpeopleBackdropPath, notes: [String](), researchLog: ResearchLog(), director: "Taika Watiti", writer: "Taika Watiti", runtime: "101 mins", year: "2016")
+        let apes = ResearchProject(title: "War for the Planet of the Apes", movieID: 281338, posterPath: apesPosterPath, backdropPath: apesBackdropPath, notes: [String](), researchLog: ResearchLog(), director: "Matt Reeves", writer: "Mark Bomback, Matt Reeves", runtime: "140 mins", year: "2017")
         projects = [rotla, ferris, thorRagnarok, fantasticMrFox, huntForTheWilderpeople, apes]
         return projects
     }
